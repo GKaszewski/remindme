@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    environment:
+      - DISCORD_TOKEN=your_token
+      - DATABASE_URL=your_database_url
+  db:
+    image: postgres:16
+    environment:
+      - POSTGRES_USER=your_user
+      - POSTGRES_PASSWORD=your_password
+      - POSTGRES_DB=your_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
